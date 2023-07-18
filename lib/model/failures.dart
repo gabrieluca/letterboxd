@@ -1,1 +1,0 @@
-class UnexpectedFailure implements Exception {}

@@ -1,11 +1,11 @@
 include: package:flutter_lints/flutter.yaml
 
 
-# analyzer:
-#   language:
-#     strict-casts: true
+analyzer:
+  language:
+    strict-casts: true
+    strict-raw-types: true
 #     strict-inference: true
-#     strict-raw-types: true
     
 #   enable-experiment:
 #     - records
