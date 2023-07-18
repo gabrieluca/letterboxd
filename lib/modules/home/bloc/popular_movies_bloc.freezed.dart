@@ -547,21 +547,21 @@ mixin _$PopularMoviesState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<PopularMovie> moviesList) success,
+    required TResult Function(List<PopularMovie> moviesList, int page) success,
     required TResult Function(bool isOffline) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(List<PopularMovie> moviesList)? success,
+    TResult? Function(List<PopularMovie> moviesList, int page)? success,
     TResult? Function(bool isOffline)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<PopularMovie> moviesList)? success,
+    TResult Function(List<PopularMovie> moviesList, int page)? success,
     TResult Function(bool isOffline)? error,
     required TResult orElse(),
   }) =>
@@ -646,7 +646,7 @@ class _$_Loading extends _Loading {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<PopularMovie> moviesList) success,
+    required TResult Function(List<PopularMovie> moviesList, int page) success,
     required TResult Function(bool isOffline) error,
   }) {
     return loading();
@@ -656,7 +656,7 @@ class _$_Loading extends _Loading {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(List<PopularMovie> moviesList)? success,
+    TResult? Function(List<PopularMovie> moviesList, int page)? success,
     TResult? Function(bool isOffline)? error,
   }) {
     return loading?.call();
@@ -666,7 +666,7 @@ class _$_Loading extends _Loading {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<PopularMovie> moviesList)? success,
+    TResult Function(List<PopularMovie> moviesList, int page)? success,
     TResult Function(bool isOffline)? error,
     required TResult orElse(),
   }) {
@@ -722,7 +722,7 @@ abstract class _$$_SuccessCopyWith<$Res> {
           _$_Success value, $Res Function(_$_Success) then) =
       __$$_SuccessCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<PopularMovie> moviesList});
+  $Res call({List<PopularMovie> moviesList, int page});
 }
 
 /// @nodoc
@@ -736,12 +736,17 @@ class __$$_SuccessCopyWithImpl<$Res>
   @override
   $Res call({
     Object? moviesList = null,
+    Object? page = null,
   }) {
     return _then(_$_Success(
       null == moviesList
           ? _value._moviesList
           : moviesList // ignore: cast_nullable_to_non_nullable
               as List<PopularMovie>,
+      null == page
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -749,7 +754,7 @@ class __$$_SuccessCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Success extends _Success {
-  const _$_Success(final List<PopularMovie> moviesList)
+  const _$_Success(final List<PopularMovie> moviesList, this.page)
       : _moviesList = moviesList,
         super._();
 
@@ -762,8 +767,11 @@ class _$_Success extends _Success {
   }
 
   @override
+  final int page;
+
+  @override
   String toString() {
-    return 'PopularMoviesState.success(moviesList: $moviesList)';
+    return 'PopularMoviesState.success(moviesList: $moviesList, page: $page)';
   }
 
   @override
@@ -772,12 +780,13 @@ class _$_Success extends _Success {
         (other.runtimeType == runtimeType &&
             other is _$_Success &&
             const DeepCollectionEquality()
-                .equals(other._moviesList, _moviesList));
+                .equals(other._moviesList, _moviesList) &&
+            (identical(other.page, page) || other.page == page));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_moviesList));
+      runtimeType, const DeepCollectionEquality().hash(_moviesList), page);
 
   @JsonKey(ignore: true)
   @override
@@ -789,32 +798,32 @@ class _$_Success extends _Success {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<PopularMovie> moviesList) success,
+    required TResult Function(List<PopularMovie> moviesList, int page) success,
     required TResult Function(bool isOffline) error,
   }) {
-    return success(moviesList);
+    return success(moviesList, page);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(List<PopularMovie> moviesList)? success,
+    TResult? Function(List<PopularMovie> moviesList, int page)? success,
     TResult? Function(bool isOffline)? error,
   }) {
-    return success?.call(moviesList);
+    return success?.call(moviesList, page);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<PopularMovie> moviesList)? success,
+    TResult Function(List<PopularMovie> moviesList, int page)? success,
     TResult Function(bool isOffline)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(moviesList);
+      return success(moviesList, page);
     }
     return orElse();
   }
@@ -855,10 +864,12 @@ class _$_Success extends _Success {
 }
 
 abstract class _Success extends PopularMoviesState {
-  const factory _Success(final List<PopularMovie> moviesList) = _$_Success;
+  const factory _Success(final List<PopularMovie> moviesList, final int page) =
+      _$_Success;
   const _Success._() : super._();
 
   List<PopularMovie> get moviesList;
+  int get page;
   @JsonKey(ignore: true)
   _$$_SuccessCopyWith<_$_Success> get copyWith =>
       throw _privateConstructorUsedError;
@@ -929,7 +940,7 @@ class _$_Error extends _Error {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<PopularMovie> moviesList) success,
+    required TResult Function(List<PopularMovie> moviesList, int page) success,
     required TResult Function(bool isOffline) error,
   }) {
     return error(isOffline);
@@ -939,7 +950,7 @@ class _$_Error extends _Error {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(List<PopularMovie> moviesList)? success,
+    TResult? Function(List<PopularMovie> moviesList, int page)? success,
     TResult? Function(bool isOffline)? error,
   }) {
     return error?.call(isOffline);
@@ -949,7 +960,7 @@ class _$_Error extends _Error {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<PopularMovie> moviesList)? success,
+    TResult Function(List<PopularMovie> moviesList, int page)? success,
     TResult Function(bool isOffline)? error,
     required TResult orElse(),
   }) {

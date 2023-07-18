@@ -28,15 +28,22 @@ class PopularMoviesList extends StatelessWidget {
                 ? const Center(
                     child: Text('No movies found'),
                   )
-                : GridView.builder(
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      childAspectRatio: 0.7,
+                : RefreshIndicator(
+                    onRefresh: () async {
+                      context
+                          .read<PopularMoviesBloc>()
+                          .add(const PopularMoviesEvent.refreshed());
+                    },
+                    child: GridView.builder(
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 3,
+                        childAspectRatio: 0.6,
+                      ),
+                      itemCount: state.moviesList.length,
+                      itemBuilder: (context, index) =>
+                          PopularMovieCard(movie: state.moviesList[index]),
                     ),
-                    itemCount: state.moviesList.length,
-                    itemBuilder: (context, index) =>
-                        PopularMovieCard(movie: state.moviesList[index]),
                   ));
       },
     );

@@ -1,9 +1,22 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
+import 'common/data/services/log.dart';
+import 'common/dependencies/dependencies.dart';
 import 'modules/home/view/popular_movies_screen.dart';
 
-void main() {
-  runApp(const MyApp());
+Future<void> main() async {
+  await runZonedGuarded(
+    () async {
+      WidgetsFlutterBinding.ensureInitialized();
+      await initDependencies();
+      runApp(const MyApp());
+    },
+    (error, stackTrace) {
+      Log().error(error.toString(), stackTrace: stackTrace);
+    },
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -16,6 +29,15 @@ class MyApp extends StatelessWidget {
       title: 'Letterboxd',
       theme: ThemeData(
         brightness: Brightness.dark,
+        scaffoldBackgroundColor: const Color(0xFF171b1f),
+        appBarTheme: AppBarTheme(
+          color: const Color(0xFF0d1b4d),
+          toolbarHeight: 42,
+          titleTextStyle: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+              ),
+        ),
         // This is the theme of your application.
         //
         // Try running your application with "flutter run". You'll see the
@@ -25,9 +47,12 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.blue,
+        primaryColor: const Color(0xFF0d1b4d),
+        primarySwatch: Colors.blueGrey,
       ),
-      home: const PopularMoviesScreen(),
+      home: Builder(builder: (context) {
+        return const PopularMoviesScreen();
+      }),
     );
   }
 }

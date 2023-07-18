@@ -11,26 +11,38 @@ class PopularMoviesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => dependencies<PopularMoviesBloc>()
+      create: (context) => dependencies.get<PopularMoviesBloc>()
         ..add(
           const PopularMoviesEvent.firstFetched(),
         ),
-      child: Scaffold(
-        appBar: AppBar(
-          title: const Text('Letterboxd'),
-        ),
-        body: Column(
-          children: [
-            Text(
-              'Popular this week',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-            const Expanded(
-              child: PopularMoviesList(),
-            ),
-          ],
-        ),
-      ),
+      child: Builder(builder: (context) {
+        return Scaffold(
+          appBar: AppBar(
+            title: const Text('Letterboxd'),
+          ),
+          body: Column(
+            children: [
+              Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      'Popular this week',
+                      style: Theme.of(context)
+                          .textTheme
+                          .titleLarge
+                          ?.copyWith(fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ],
+              ),
+              const Expanded(
+                child: PopularMoviesList(),
+              ),
+            ],
+          ),
+        );
+      }),
     );
   }
 }

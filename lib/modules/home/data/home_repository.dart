@@ -25,8 +25,11 @@ class HomeRepositoryImpl implements HomeRepository {
       },
     );
 
-    final data = result['results'] as List<Map<String, dynamic>>;
+    final data = result['results'] as List<dynamic>;
 
-    return data.map(PopularMovie.fromMap).toList();
+    return data
+        .whereType<Map<String, dynamic>>()
+        .map(PopularMovie.fromMap)
+        .toList();
   }
 }

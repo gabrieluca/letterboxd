@@ -15,20 +15,39 @@ class PopularMoviesBloc extends Bloc<PopularMoviesEvent, PopularMoviesState> {
   PopularMoviesBloc(this._repository)
       : super(const PopularMoviesState.loading()) {
     on<_FirstFetched>((event, emit) async {
-      try {
-        final moviesList = await _repository.getPopularMovies();
-        emit(PopularMoviesState.success(moviesList));
-      } on NoConnectionFailure {
-        emit(const PopularMoviesState.error(
-          isOffline: true,
-        ));
-      } on Failure {
-        emit(const PopularMoviesState.error());
-      }
+      await _loadAllMovies(emit);
+    });
+    on<_Refreshed>((event, emit) async {
+      await _loadAllMovies(emit);
     });
   }
 
-  final HomeRepository _repository;
+  Future<void> _loadAllMovies(Emitter<PopularMoviesState> emit) async {
+    try {
+      final moviesList = await _repository.getPopularMovies();
+      emit(PopularMoviesState.success(moviesList, 0));
+    } on NoConnectionFailure {
+      emit(const PopularMoviesState.error(
+        isOffline: true,
+      ));
+    } on Failure {
+      emit(const PopularMoviesState.error());
+    }
+  }
 
-  // Future<void> _getUsersList(Emitter<HomePageState> emit) async {}
+  Future<void> loadMoreMovies(Emitter<PopularMoviesState> emit) async {
+    try {
+      final moviesList = await _repository.getPopularMovies();
+      emit(PopularMoviesState.success(
+          moviesList, 1 + 1)); //TODO Sum one more page
+    } on NoConnectionFailure {
+      emit(const PopularMoviesState.error(
+        isOffline: true,
+      ));
+    } on Failure {
+      emit(const PopularMoviesState.error());
+    }
+  }
+
+  final HomeRepository _repository;
 }

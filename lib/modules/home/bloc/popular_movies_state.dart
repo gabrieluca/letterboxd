@@ -4,10 +4,10 @@ part of 'popular_movies_bloc.dart';
 class PopularMoviesState with _$PopularMoviesState {
   const PopularMoviesState._();
 
-  // const factory PopularMoviesState.initial() = _Initial;
   const factory PopularMoviesState.loading() = _Loading;
   const factory PopularMoviesState.success(
     List<PopularMovie> moviesList,
+    int page,
   ) = _Success;
   const factory PopularMoviesState.error({@Default(false) bool isOffline}) =
       _Error;

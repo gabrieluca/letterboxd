@@ -31,7 +31,8 @@ extension DioResponseHandler on Future<Response<dynamic>> {
         'message': message,
       };
 
-      final path = error.requestOptions.uri.toString().split('/api/')[1];
+      final fullPath = error.requestOptions.uri.toString().split('/api/');
+      final path = fullPath.isEmpty ? '' : fullPath.first;
       Log().warning(
         '$method | $path | $errorData',
         name: 'API',
@@ -47,6 +48,8 @@ extension DioResponseHandler on Future<Response<dynamic>> {
         throw NoConnectionFailure();
       }
       switch (error.type) {
+        case DioExceptionType.connectionError:
+          throw NoConnectionFailure();
         case DioExceptionType.badResponse:
           throw ClientFailure(errorData);
 
