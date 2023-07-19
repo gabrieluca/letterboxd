@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -5,6 +7,7 @@ import 'package:letterboxd/common/model/failures.dart';
 import 'package:letterboxd/modules/home/data/home_repository.dart';
 
 import '../model/popular_movie.dart';
+import 'page_params.dart';
 
 part 'popular_movies_event.dart';
 part 'popular_movies_state.dart';
@@ -20,12 +23,15 @@ class PopularMoviesBloc extends Bloc<PopularMoviesEvent, PopularMoviesState> {
     on<_Refreshed>((event, emit) async {
       await _loadAllMovies(emit);
     });
+    on<_NextFetched>((event, emit) async {
+      await loadMoreMovies(event, emit);
+    });
   }
 
   Future<void> _loadAllMovies(Emitter<PopularMoviesState> emit) async {
     try {
       final moviesList = await _repository.getPopularMovies();
-      emit(PopularMoviesState.success(moviesList, 0));
+      emit(PopularMoviesState.success(moviesList));
     } on NoConnectionFailure {
       emit(const PopularMoviesState.error(
         isOffline: true,
@@ -35,11 +41,14 @@ class PopularMoviesBloc extends Bloc<PopularMoviesEvent, PopularMoviesState> {
     }
   }
 
-  Future<void> loadMoreMovies(Emitter<PopularMoviesState> emit) async {
+  Future<void> loadMoreMovies(
+    _NextFetched event,
+    Emitter<PopularMoviesState> emit,
+  ) async {
     try {
-      final moviesList = await _repository.getPopularMovies();
-      emit(PopularMoviesState.success(
-          moviesList, 1 + 1)); //TODO Sum one more page
+      final newMovieList =
+          await _repository.getPopularMovies(event.params.itemCount);
+      emit(PopularMoviesState.success(event.params.moviesList + newMovieList));
     } on NoConnectionFailure {
       emit(const PopularMoviesState.error(
         isOffline: true,
@@ -51,3 +60,8 @@ class PopularMoviesBloc extends Bloc<PopularMoviesEvent, PopularMoviesState> {
 
   final HomeRepository _repository;
 }
+
+typedef PagedFetchParams<T> = ({
+  List<T> moviesList,
+  int itemCount,
+});
