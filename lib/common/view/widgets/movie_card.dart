@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../../../common/view/view_constants.dart';
-import '../model/popular_movie.dart';
+import '../view_constants.dart';
+import '../../../modules/home/model/popular_movie.dart';
 
-class PopularMovieCard extends StatelessWidget {
-  const PopularMovieCard({
+class MovieCard extends StatelessWidget {
+  const MovieCard({
     super.key,
     required this.movie,
   });
