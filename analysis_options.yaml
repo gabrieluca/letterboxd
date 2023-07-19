@@ -1,11 +1,17 @@
 include: package:flutter_lints/flutter.yaml
 
+linter:
+  rules:
+    # Ignore while creating new features to improve creativity
+    prefer_const_constructors: false
+    prefer_const_literals_to_create_immutables: false
 
 analyzer:
   language:
     strict-casts: true
     strict-raw-types: true
 #     strict-inference: true
+
     
 #   enable-experiment:
 #     - records

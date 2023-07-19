@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:letterboxd/common/view/view_constants.dart';
 
 import 'common/data/services/log.dart';
 import 'common/dependencies/dependencies.dart';
@@ -29,10 +30,10 @@ class MyApp extends StatelessWidget {
       title: 'Letterboxd',
       theme: ThemeData(
         brightness: Brightness.dark,
-        scaffoldBackgroundColor: const Color(0xFF171b1f),
+        scaffoldBackgroundColor: CustomColors.detailsBackground,
         appBarTheme: AppBarTheme(
           color: const Color(0xFF0d1b4d),
-          toolbarHeight: 42,
+          toolbarHeight: 36,
           titleTextStyle: Theme.of(context).textTheme.headlineSmall?.copyWith(
                 color: Colors.white,
                 fontWeight: FontWeight.bold,

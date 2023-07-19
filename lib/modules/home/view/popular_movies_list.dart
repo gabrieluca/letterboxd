@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../details/view/movie_details_screen.dart';
 import '../bloc/popular_movies_bloc.dart';
 import '../../../common/view/widgets/movie_card.dart';
 
@@ -39,9 +40,22 @@ class PopularMoviesList extends StatelessWidget {
                   childAspectRatio: 0.6,
                 ),
                 delegate: SliverChildBuilderDelegate(
-                  (context, index) => MovieCard(
-                    movie: state.moviesList[index],
-                  ),
+                  (context, index) {
+                    final movie = state.moviesList[index];
+                    return MovieCard(
+                      movie: movie,
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => MovieDetailsScreen(
+                              movie: movie,
+                            ),
+                          ),
+                        );
+                      },
+                    );
+                  },
                   childCount: state.moviesList.length,
                 ),
               ),

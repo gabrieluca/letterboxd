@@ -6,7 +6,7 @@ import 'package:injectable/injectable.dart';
 import 'package:letterboxd/common/model/failures.dart';
 import 'package:letterboxd/modules/home/data/home_repository.dart';
 
-import '../model/popular_movie.dart';
+import '../model/short_movie.dart';
 import 'page_params.dart';
 
 part 'popular_movies_event.dart';

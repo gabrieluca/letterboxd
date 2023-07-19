@@ -4,7 +4,7 @@ part of 'popular_movies_bloc.dart';
 class PopularMoviesEvent with _$PopularMoviesEvent {
   const factory PopularMoviesEvent.firstFetched() = _FirstFetched;
   const factory PopularMoviesEvent.nextFetched(
-    PageParams<PopularMovie> params,
+    PageParams<ShortMovie> params,
   ) = _NextFetched;
   const factory PopularMoviesEvent.refreshed() = _Refreshed;
   const factory PopularMoviesEvent.searched() = _Searched;

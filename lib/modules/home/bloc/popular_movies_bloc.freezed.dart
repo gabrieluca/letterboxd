@@ -20,7 +20,7 @@ mixin _$PopularMoviesEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() firstFetched,
     required TResult Function(
-            ({int itemCount, List<PopularMovie> moviesList}) params)
+            ({int itemCount, List<ShortMovie> moviesList}) params)
         nextFetched,
     required TResult Function() refreshed,
     required TResult Function() searched,
@@ -29,7 +29,7 @@ mixin _$PopularMoviesEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? firstFetched,
-    TResult? Function(({int itemCount, List<PopularMovie> moviesList}) params)?
+    TResult? Function(({int itemCount, List<ShortMovie> moviesList}) params)?
         nextFetched,
     TResult? Function()? refreshed,
     TResult? Function()? searched,
@@ -38,7 +38,7 @@ mixin _$PopularMoviesEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? firstFetched,
-    TResult Function(({int itemCount, List<PopularMovie> moviesList}) params)?
+    TResult Function(({int itemCount, List<ShortMovie> moviesList}) params)?
         nextFetched,
     TResult Function()? refreshed,
     TResult Function()? searched,
@@ -130,7 +130,7 @@ class _$_FirstFetched implements _FirstFetched {
   TResult when<TResult extends Object?>({
     required TResult Function() firstFetched,
     required TResult Function(
-            ({int itemCount, List<PopularMovie> moviesList}) params)
+            ({int itemCount, List<ShortMovie> moviesList}) params)
         nextFetched,
     required TResult Function() refreshed,
     required TResult Function() searched,
@@ -142,7 +142,7 @@ class _$_FirstFetched implements _FirstFetched {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? firstFetched,
-    TResult? Function(({int itemCount, List<PopularMovie> moviesList}) params)?
+    TResult? Function(({int itemCount, List<ShortMovie> moviesList}) params)?
         nextFetched,
     TResult? Function()? refreshed,
     TResult? Function()? searched,
@@ -154,7 +154,7 @@ class _$_FirstFetched implements _FirstFetched {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? firstFetched,
-    TResult Function(({int itemCount, List<PopularMovie> moviesList}) params)?
+    TResult Function(({int itemCount, List<ShortMovie> moviesList}) params)?
         nextFetched,
     TResult Function()? refreshed,
     TResult Function()? searched,
@@ -214,7 +214,7 @@ abstract class _$$_NextFetchedCopyWith<$Res> {
           _$_NextFetched value, $Res Function(_$_NextFetched) then) =
       __$$_NextFetchedCopyWithImpl<$Res>;
   @useResult
-  $Res call({({int itemCount, List<PopularMovie> moviesList}) params});
+  $Res call({({int itemCount, List<ShortMovie> moviesList}) params});
 }
 
 /// @nodoc
@@ -234,7 +234,7 @@ class __$$_NextFetchedCopyWithImpl<$Res>
       null == params
           ? _value.params
           : params // ignore: cast_nullable_to_non_nullable
-              as ({int itemCount, List<PopularMovie> moviesList}),
+              as ({int itemCount, List<ShortMovie> moviesList}),
     ));
   }
 }
@@ -245,7 +245,7 @@ class _$_NextFetched implements _NextFetched {
   const _$_NextFetched(this.params);
 
   @override
-  final ({int itemCount, List<PopularMovie> moviesList}) params;
+  final ({int itemCount, List<ShortMovie> moviesList}) params;
 
   @override
   String toString() {
@@ -274,7 +274,7 @@ class _$_NextFetched implements _NextFetched {
   TResult when<TResult extends Object?>({
     required TResult Function() firstFetched,
     required TResult Function(
-            ({int itemCount, List<PopularMovie> moviesList}) params)
+            ({int itemCount, List<ShortMovie> moviesList}) params)
         nextFetched,
     required TResult Function() refreshed,
     required TResult Function() searched,
@@ -286,7 +286,7 @@ class _$_NextFetched implements _NextFetched {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? firstFetched,
-    TResult? Function(({int itemCount, List<PopularMovie> moviesList}) params)?
+    TResult? Function(({int itemCount, List<ShortMovie> moviesList}) params)?
         nextFetched,
     TResult? Function()? refreshed,
     TResult? Function()? searched,
@@ -298,7 +298,7 @@ class _$_NextFetched implements _NextFetched {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? firstFetched,
-    TResult Function(({int itemCount, List<PopularMovie> moviesList}) params)?
+    TResult Function(({int itemCount, List<ShortMovie> moviesList}) params)?
         nextFetched,
     TResult Function()? refreshed,
     TResult Function()? searched,
@@ -350,10 +350,10 @@ class _$_NextFetched implements _NextFetched {
 
 abstract class _NextFetched implements PopularMoviesEvent {
   const factory _NextFetched(
-          final ({int itemCount, List<PopularMovie> moviesList}) params) =
+          final ({int itemCount, List<ShortMovie> moviesList}) params) =
       _$_NextFetched;
 
-  ({int itemCount, List<PopularMovie> moviesList}) get params;
+  ({int itemCount, List<ShortMovie> moviesList}) get params;
   @JsonKey(ignore: true)
   _$$_NextFetchedCopyWith<_$_NextFetched> get copyWith =>
       throw _privateConstructorUsedError;
@@ -399,7 +399,7 @@ class _$_Refreshed implements _Refreshed {
   TResult when<TResult extends Object?>({
     required TResult Function() firstFetched,
     required TResult Function(
-            ({int itemCount, List<PopularMovie> moviesList}) params)
+            ({int itemCount, List<ShortMovie> moviesList}) params)
         nextFetched,
     required TResult Function() refreshed,
     required TResult Function() searched,
@@ -411,7 +411,7 @@ class _$_Refreshed implements _Refreshed {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? firstFetched,
-    TResult? Function(({int itemCount, List<PopularMovie> moviesList}) params)?
+    TResult? Function(({int itemCount, List<ShortMovie> moviesList}) params)?
         nextFetched,
     TResult? Function()? refreshed,
     TResult? Function()? searched,
@@ -423,7 +423,7 @@ class _$_Refreshed implements _Refreshed {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? firstFetched,
-    TResult Function(({int itemCount, List<PopularMovie> moviesList}) params)?
+    TResult Function(({int itemCount, List<ShortMovie> moviesList}) params)?
         nextFetched,
     TResult Function()? refreshed,
     TResult Function()? searched,
@@ -517,7 +517,7 @@ class _$_Searched implements _Searched {
   TResult when<TResult extends Object?>({
     required TResult Function() firstFetched,
     required TResult Function(
-            ({int itemCount, List<PopularMovie> moviesList}) params)
+            ({int itemCount, List<ShortMovie> moviesList}) params)
         nextFetched,
     required TResult Function() refreshed,
     required TResult Function() searched,
@@ -529,7 +529,7 @@ class _$_Searched implements _Searched {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? firstFetched,
-    TResult? Function(({int itemCount, List<PopularMovie> moviesList}) params)?
+    TResult? Function(({int itemCount, List<ShortMovie> moviesList}) params)?
         nextFetched,
     TResult? Function()? refreshed,
     TResult? Function()? searched,
@@ -541,7 +541,7 @@ class _$_Searched implements _Searched {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? firstFetched,
-    TResult Function(({int itemCount, List<PopularMovie> moviesList}) params)?
+    TResult Function(({int itemCount, List<ShortMovie> moviesList}) params)?
         nextFetched,
     TResult Function()? refreshed,
     TResult Function()? searched,
@@ -600,21 +600,21 @@ mixin _$PopularMoviesState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<PopularMovie> moviesList) success,
+    required TResult Function(List<ShortMovie> moviesList) success,
     required TResult Function(bool isOffline) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(List<PopularMovie> moviesList)? success,
+    TResult? Function(List<ShortMovie> moviesList)? success,
     TResult? Function(bool isOffline)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<PopularMovie> moviesList)? success,
+    TResult Function(List<ShortMovie> moviesList)? success,
     TResult Function(bool isOffline)? error,
     required TResult orElse(),
   }) =>
@@ -699,7 +699,7 @@ class _$_Loading extends _Loading {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<PopularMovie> moviesList) success,
+    required TResult Function(List<ShortMovie> moviesList) success,
     required TResult Function(bool isOffline) error,
   }) {
     return loading();
@@ -709,7 +709,7 @@ class _$_Loading extends _Loading {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(List<PopularMovie> moviesList)? success,
+    TResult? Function(List<ShortMovie> moviesList)? success,
     TResult? Function(bool isOffline)? error,
   }) {
     return loading?.call();
@@ -719,7 +719,7 @@ class _$_Loading extends _Loading {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<PopularMovie> moviesList)? success,
+    TResult Function(List<ShortMovie> moviesList)? success,
     TResult Function(bool isOffline)? error,
     required TResult orElse(),
   }) {
@@ -775,7 +775,7 @@ abstract class _$$_SuccessCopyWith<$Res> {
           _$_Success value, $Res Function(_$_Success) then) =
       __$$_SuccessCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<PopularMovie> moviesList});
+  $Res call({List<ShortMovie> moviesList});
 }
 
 /// @nodoc
@@ -794,7 +794,7 @@ class __$$_SuccessCopyWithImpl<$Res>
       null == moviesList
           ? _value._moviesList
           : moviesList // ignore: cast_nullable_to_non_nullable
-              as List<PopularMovie>,
+              as List<ShortMovie>,
     ));
   }
 }
@@ -802,13 +802,13 @@ class __$$_SuccessCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Success extends _Success {
-  const _$_Success(final List<PopularMovie> moviesList)
+  const _$_Success(final List<ShortMovie> moviesList)
       : _moviesList = moviesList,
         super._();
 
-  final List<PopularMovie> _moviesList;
+  final List<ShortMovie> _moviesList;
   @override
-  List<PopularMovie> get moviesList {
+  List<ShortMovie> get moviesList {
     if (_moviesList is EqualUnmodifiableListView) return _moviesList;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_moviesList);
@@ -842,7 +842,7 @@ class _$_Success extends _Success {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<PopularMovie> moviesList) success,
+    required TResult Function(List<ShortMovie> moviesList) success,
     required TResult Function(bool isOffline) error,
   }) {
     return success(moviesList);
@@ -852,7 +852,7 @@ class _$_Success extends _Success {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(List<PopularMovie> moviesList)? success,
+    TResult? Function(List<ShortMovie> moviesList)? success,
     TResult? Function(bool isOffline)? error,
   }) {
     return success?.call(moviesList);
@@ -862,7 +862,7 @@ class _$_Success extends _Success {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<PopularMovie> moviesList)? success,
+    TResult Function(List<ShortMovie> moviesList)? success,
     TResult Function(bool isOffline)? error,
     required TResult orElse(),
   }) {
@@ -908,10 +908,10 @@ class _$_Success extends _Success {
 }
 
 abstract class _Success extends PopularMoviesState {
-  const factory _Success(final List<PopularMovie> moviesList) = _$_Success;
+  const factory _Success(final List<ShortMovie> moviesList) = _$_Success;
   const _Success._() : super._();
 
-  List<PopularMovie> get moviesList;
+  List<ShortMovie> get moviesList;
   @JsonKey(ignore: true)
   _$$_SuccessCopyWith<_$_Success> get copyWith =>
       throw _privateConstructorUsedError;
@@ -982,7 +982,7 @@ class _$_Error extends _Error {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<PopularMovie> moviesList) success,
+    required TResult Function(List<ShortMovie> moviesList) success,
     required TResult Function(bool isOffline) error,
   }) {
     return error(isOffline);
@@ -992,7 +992,7 @@ class _$_Error extends _Error {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(List<PopularMovie> moviesList)? success,
+    TResult? Function(List<ShortMovie> moviesList)? success,
     TResult? Function(bool isOffline)? error,
   }) {
     return error?.call(isOffline);
@@ -1002,7 +1002,7 @@ class _$_Error extends _Error {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<PopularMovie> moviesList)? success,
+    TResult Function(List<ShortMovie> moviesList)? success,
     TResult Function(bool isOffline)? error,
     required TResult orElse(),
   }) {

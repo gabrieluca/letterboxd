@@ -6,7 +6,7 @@ class PopularMoviesState with _$PopularMoviesState {
 
   const factory PopularMoviesState.loading() = _Loading;
   const factory PopularMoviesState.success(
-    List<PopularMovie> moviesList,
+    List<ShortMovie> moviesList,
   ) = _Success;
   const factory PopularMoviesState.error({@Default(false) bool isOffline}) =
       _Error;
@@ -16,7 +16,7 @@ class PopularMoviesState with _$PopularMoviesState {
         orElse: () => false,
       );
 
-  List<PopularMovie> get moviesList => maybeMap(
+  List<ShortMovie> get moviesList => maybeMap(
         success: (state) => state.moviesList,
         orElse: () => const [],
       );

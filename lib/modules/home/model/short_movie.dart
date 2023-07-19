@@ -2,8 +2,8 @@ import 'package:letterboxd/modules/home/model/language.dart';
 
 import '../../../common/model/failures.dart';
 
-class PopularMovie {
-  PopularMovie(
+class ShortMovie {
+  ShortMovie(
     this.title,
     this.overview,
     this.originalTitle,
@@ -23,7 +23,7 @@ class PopularMovie {
   final Language originalLanguage;
   final DateTime releaseDate;
 
-  factory PopularMovie.fromMap(Map<String, dynamic> json) {
+  factory ShortMovie.fromMap(Map<String, dynamic> json) {
     final title = json['title'];
     final overview = json['overview'];
     final originalTitle = json['original_title'];
@@ -58,11 +58,20 @@ class PopularMovie {
       throw MapperException(json, 'release_date');
     }
 
-    final posterPath = json['poster_path'] as String?;
-    final backdropPath = json['backdrop_path'] as String?;
+    var posterPath = json['poster_path'] as String?;
+    var backdropPath = json['backdrop_path'] as String?;
+
+    /// Avoid empty validation on UI layer
+    if (posterPath?.isEmpty ?? false) {
+      posterPath = null;
+    }
+    if (backdropPath?.isEmpty ?? false) {
+      backdropPath = null;
+    }
+
     final isAdult = json['adult'] as bool?;
 
-    return PopularMovie(
+    return ShortMovie(
       title,
       overview,
       originalTitle,

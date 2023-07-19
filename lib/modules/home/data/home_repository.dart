@@ -1,5 +1,5 @@
 import 'package:injectable/injectable.dart';
-import 'package:letterboxd/modules/home/model/popular_movie.dart';
+import 'package:letterboxd/modules/home/model/short_movie.dart';
 
 import '../../../common/data/api/endpoints.dart';
 import '../../../common/data/services/http_service.dart';
@@ -7,7 +7,7 @@ import '../../../common/data/services/http_service.dart';
 const _pageCount = 20;
 
 abstract interface class HomeRepository {
-  Future<List<PopularMovie>> getPopularMovies([
+  Future<List<ShortMovie>> getPopularMovies([
     int? itemCount,
   ]);
 }
@@ -19,7 +19,7 @@ class HomeRepositoryImpl implements HomeRepository {
   final HttpService _http;
 
   @override
-  Future<List<PopularMovie>> getPopularMovies([
+  Future<List<ShortMovie>> getPopularMovies([
     int? itemCount,
   ]) async {
     final page = (itemCount ?? 0) / _pageCount + 1;
@@ -28,7 +28,7 @@ class HomeRepositoryImpl implements HomeRepository {
       queryParameters: {
         'page': page,
         // if (params.language != null)
-        'language': 'pt', //TODO [FEATURE] Change language: query parameter
+        // 'language': 'pt', //TODO [FEATURE] Change language: query parameter
       },
     );
 
@@ -36,7 +36,7 @@ class HomeRepositoryImpl implements HomeRepository {
 
     return data
         .whereType<Map<String, dynamic>>()
-        .map(PopularMovie.fromMap)
+        .map(ShortMovie.fromMap)
         .toList();
   }
 }
