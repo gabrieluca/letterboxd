@@ -11,4 +11,5 @@ class CustomColors {
   static final greenChip = Color(0xFF00b01f);
   static final greyChip = Color(0xFF778899);
   static final blueChip = Color(0xFF209bd4);
+  static final toggleBackground = Color(0xFF0e0e0e);
 }
