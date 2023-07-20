@@ -3,8 +3,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-import 'package:letterboxd/common/model/failures.dart';
-import 'package:letterboxd/modules/home/data/repository.dart';
+import '../../../common/model/failures.dart';
+import '../data/repository.dart';
 
 import '../model/short_movie.dart';
 import 'page_params.dart';
@@ -35,7 +35,7 @@ class PopularMoviesBloc extends Bloc<PopularMoviesEvent, PopularMoviesState> {
     } on NoConnectionFailure {
       emit(const PopularMoviesState.error(
         isOffline: true,
-      ));
+      ),);
     } on Failure {
       emit(const PopularMoviesState.error());
     }
@@ -52,7 +52,7 @@ class PopularMoviesBloc extends Bloc<PopularMoviesEvent, PopularMoviesState> {
     } on NoConnectionFailure {
       emit(const PopularMoviesState.error(
         isOffline: true,
-      ));
+      ),);
     } on Failure {
       emit(const PopularMoviesState.error());
     }

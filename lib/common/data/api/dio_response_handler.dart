@@ -1,8 +1,10 @@
+// ignore_for_file: avoid_catches_without_on_clauses, no_default_cases
+
 import 'dart:io';
 
 import 'package:dio/dio.dart';
-import 'package:letterboxd/common/model/failures.dart';
 
+import '../../model/failures.dart';
 import '../services/log.dart';
 
 // ignore_for_file: avoid-throw-in-catch-block
@@ -12,7 +14,7 @@ import '../services/log.dart';
 extension DioResponseHandler on Future<Response<dynamic>> {
   Future<Map<String, dynamic>> handleResponse() async {
     try {
-      final response = await (this);
+      final response = await this;
       final data = response.data as Map<String, dynamic>?;
       if (data == null) throw EmptyDataFailure();
 
@@ -20,7 +22,7 @@ extension DioResponseHandler on Future<Response<dynamic>> {
     } on DioException catch (error, stackTrace) {
       // Logging to improve debugging API errors
       final method = error.requestOptions.method.toUpperCase();
-      var responseData = error.response?.data;
+      final responseData = error.response?.data;
       final code = responseData?['code'];
       final data = responseData?['data'];
       final message = responseData?['status_message'];

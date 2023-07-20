@@ -5,8 +5,7 @@ import '../../model/movie.dart';
 
 class RatingBlock extends StatelessWidget {
   const RatingBlock({
-    super.key,
-    required this.movie,
+    required this.movie, super.key,
   });
 
   final Movie movie;
@@ -15,8 +14,8 @@ class RatingBlock extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(
-        horizontal: 16.0,
-        vertical: 8.0,
+        horizontal: 16,
+        vertical: 8,
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -41,13 +40,13 @@ class RatingBlock extends StatelessWidget {
                       .headlineSmall
                       ?.copyWith(color: CustomColors.labelColor),
                 ),
-                SizedBox(height: 4),
+                const SizedBox(height: 4),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     ...List.generate(
                       movie.rating.round(),
-                      (index) => Icon(
+                      (index) => const Icon(
                         Icons.star,
                         color: Colors.green,
                         size: 20,
@@ -55,7 +54,7 @@ class RatingBlock extends StatelessWidget {
                     ),
                     ...List.generate(
                       5 - movie.rating.round(),
-                      (index) => Icon(
+                      (index) => const Icon(
                         Icons.star_border,
                         color: CustomColors.accentColor,
                         size: 20,

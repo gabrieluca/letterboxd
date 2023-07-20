@@ -53,8 +53,13 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blueGrey,
       ),
       home: Builder(builder: (context) {
+        /// Log examples
+        Log().debug('This is a debug message');
+        Log().info('This is an info message');
+        Log().warning('This is a warning message');
+        Log().error('This is an error message');
         return const PopularMoviesScreen();
-      }),
+      },),
     );
   }
 }

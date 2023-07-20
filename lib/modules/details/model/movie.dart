@@ -1,7 +1,6 @@
-import 'package:letterboxd/modules/home/model/short_movie.dart';
-
 import '../../../common/model/failures.dart';
 import '../../home/model/language.dart';
+import '../../home/model/short_movie.dart';
 import 'genre.dart';
 
 class Movie extends ShortMovie {

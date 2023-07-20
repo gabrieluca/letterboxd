@@ -38,7 +38,7 @@ class _PopularMovieSuccessState extends State<PopularMovieSuccess> {
           child: Row(
             children: [
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8),
                 child: Text(
                   'Popular this week',
                   style: Theme.of(context)
@@ -69,7 +69,7 @@ class _PopularMovieSuccessState extends State<PopularMovieSuccess> {
           PopularMoviesEvent.nextFetched((
             moviesList: moviesList,
             itemCount: moviesList.length,
-          )),
+          ),),
         );
   }
 }

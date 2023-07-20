@@ -3,9 +3,9 @@ import 'dart:io';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
-import 'package:letterboxd/common/data/api/endpoints.dart';
 
 import '../data/api/connection_interceptor.dart';
+import '../data/api/endpoints.dart';
 
 @module
 abstract class DependenciesModule {

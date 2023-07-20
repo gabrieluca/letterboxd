@@ -21,7 +21,7 @@ class _CustomToggleButtonsState extends State<CustomToggleButtons> {
         color: CustomColors.toggleBackground,
       ),
       child: Padding(
-        padding: const EdgeInsets.all(2.0),
+        padding: const EdgeInsets.all(2),
         child: Row(
           children: [
             for (int i = 0; i < _toggleOptions.length; i++)
@@ -72,7 +72,7 @@ class _ToggleItemCard extends StatelessWidget {
             color: isSelected ? CustomColors.subtitle : Colors.transparent,
           ),
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(8),
             child: Text(
               text,
               style: Theme.of(context).textTheme.labelMedium?.copyWith(

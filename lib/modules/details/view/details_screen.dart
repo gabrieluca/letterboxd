@@ -10,8 +10,7 @@ import 'details_success.dart';
 
 class DetailsScreen extends StatefulWidget {
   const DetailsScreen({
-    super.key,
-    required this.shortMovie,
+    required this.shortMovie, super.key,
   });
 
   final ShortMovie shortMovie;

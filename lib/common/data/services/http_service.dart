@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
-import 'package:letterboxd/common/data/api/dio_response_handler.dart';
+
+import '../api/dio_response_handler.dart';
 
 abstract class HttpService {
   Future<Map<String, dynamic>> get(

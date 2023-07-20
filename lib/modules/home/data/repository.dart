@@ -1,9 +1,9 @@
 import 'package:injectable/injectable.dart';
-import 'package:letterboxd/modules/details/model/movie.dart';
-import 'package:letterboxd/modules/home/model/short_movie.dart';
 
 import '../../../common/data/api/endpoints.dart';
 import '../../../common/data/services/http_service.dart';
+import '../../details/model/movie.dart';
+import '../model/short_movie.dart';
 
 const _pageCount = 20;
 
@@ -15,7 +15,7 @@ abstract interface class Repository {
   Future<Movie> getMovie(MovieId id);
 }
 
-// TODO Change to Letterboxd API
+// TODO: Change to Letterboxd API
 @Injectable(as: Repository)
 class RepositoryImpl implements Repository {
   RepositoryImpl(this._http);

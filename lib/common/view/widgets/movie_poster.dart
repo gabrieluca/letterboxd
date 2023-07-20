@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 
-import '../view_constants.dart';
 import '../../../modules/home/model/short_movie.dart';
+import '../view_constants.dart';
 
 class MoviePoster extends StatelessWidget {
   const MoviePoster({
-    super.key,
-    required this.movie,
+    required this.movie, super.key,
     this.onTap,
   });
 
@@ -19,7 +18,7 @@ class MoviePoster extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Padding(
-        padding: const EdgeInsets.all(4.0),
+        padding: const EdgeInsets.all(4),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(8),
           child: Material(
@@ -27,7 +26,6 @@ class MoviePoster extends StatelessWidget {
               borderRadius: BorderRadius.circular(8),
               side: BorderSide(
                 color: Colors.white.withOpacity(0.2),
-                width: 1,
               ),
             ),
             child: Column(

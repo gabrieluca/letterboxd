@@ -18,17 +18,17 @@ class ActionCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(8.0),
+        borderRadius: BorderRadius.circular(8),
       ),
       color: color,
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(8.0, 8.0, 16.0, 8.0),
+        padding: const EdgeInsets.fromLTRB(8, 8, 16, 8),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Icon(icon),
-            SizedBox(height: 4),
+            const SizedBox(height: 4),
             Text(
               title,
               style: Theme.of(context)

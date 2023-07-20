@@ -7,9 +7,7 @@ import '../../model/movie.dart';
 
 class DetailsSliverAppBar extends StatelessWidget {
   const DetailsSliverAppBar({
-    super.key,
-    required this.movie,
-    required this.image,
+    required this.movie, required this.image, super.key,
   });
 
   final Movie movie;
@@ -27,7 +25,7 @@ class DetailsSliverAppBar extends StatelessWidget {
         context.read<DetailsBloc>().add(DetailsEvent.refreshed(movie));
       },
       flexibleSpace: FlexibleSpaceBar(
-        expandedTitleScale: 2.0,
+        expandedTitleScale: 2,
         title: Text(
           movie.title,
           style: Theme.of(context).textTheme.labelMedium?.copyWith(
@@ -37,7 +35,7 @@ class DetailsSliverAppBar extends StatelessWidget {
         ),
         background: DecoratedBox(
           position: DecorationPosition.foreground,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.bottomCenter,
               end: Alignment.center,
@@ -49,11 +47,10 @@ class DetailsSliverAppBar extends StatelessWidget {
           ),
           child: image,
         ),
-        stretchModes: [
+        stretchModes: const [
           StretchMode.zoomBackground,
           StretchMode.fadeTitle,
         ],
-        collapseMode: CollapseMode.parallax,
       ),
     );
   }

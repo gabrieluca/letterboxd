@@ -1,3 +1,5 @@
+// ignore_for_file: no_runtimetype_tostring
+
 class Failure implements Exception {
   const Failure([this.message]);
 
@@ -24,12 +26,11 @@ class ClientFailure extends Failure {
 }
 
 class MapperException extends FormatException {
-  @override
-  // ignore: overridden_fields
-  final String message;
-
-  MapperException(dynamic data, [String? fieldName])
+  MapperException(data, [String? fieldName])
       : message = fieldName != null
             ? 'Invalid JSON: required "$fieldName" field in $data'
             : 'Invalid JSON: $data';
+  @override
+  // ignore: overridden_fields
+  final String message;
 }

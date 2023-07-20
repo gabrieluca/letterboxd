@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class SliverExamples extends StatefulWidget {
-  const SliverExamples({Key? key}) : super(key: key);
+  const SliverExamples({super.key});
 
   @override
   State createState() => _SliverExamplesState();
@@ -17,7 +17,7 @@ class _SliverExamplesState extends State {
           // / collapse when the user scrolls
           const SliverAppBar(
             pinned: true,
-            expandedHeight: 250.0,
+            expandedHeight: 250,
             flexibleSpace: FlexibleSpaceBar(
               title: Text('CustomScrollView'),
               centerTitle: true,
@@ -37,10 +37,10 @@ class _SliverExamplesState extends State {
             /// Example fixing the width (if Axis.vertical)
             /// or height (if Axis.horizontal) of the items in the cross axis
             gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-              maxCrossAxisExtent: 200.0,
-              mainAxisSpacing: 10.0,
-              crossAxisSpacing: 10.0,
-              childAspectRatio: 4.0,
+              maxCrossAxisExtent: 200,
+              mainAxisSpacing: 10,
+              crossAxisSpacing: 10,
+              childAspectRatio: 4,
             ),
 
             /// Same example fixing the number of items in the cross axis
@@ -73,14 +73,14 @@ class _SliverExamplesState extends State {
           /// Horizontal List (needs to have a fixed height dimension)
           SliverToBoxAdapter(
             child: SizedBox(
-              height: 100.0,
+              height: 100,
               child: IntrinsicHeight(
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: 10,
                   itemBuilder: (context, index) {
                     return SizedBox(
-                      width: 100.0,
+                      width: 100,
                       child: Card(
                         color: Colors.cyan[100 * (index % 9)],
                         child: Text('Item $index'),
@@ -93,7 +93,7 @@ class _SliverExamplesState extends State {
           ),
 
           SliverFixedExtentList(
-            itemExtent: 50.0,
+            itemExtent: 50,
             delegate: SliverChildBuilderDelegate(
               (BuildContext context, int index) {
                 return Container(
@@ -140,7 +140,7 @@ class _SliverExamplesState extends State {
               // height: 200,
               color: Colors.lightGreenAccent,
               alignment: Alignment.center,
-              child: Icon(Icons.abc, size: 100),
+              child: const Icon(Icons.abc, size: 100),
             ),
           ),
         ],

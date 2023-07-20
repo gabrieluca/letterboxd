@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:letterboxd/modules/home/bloc/popular_movies_bloc.dart';
 
 import '../../../common/dependencies/dependencies.dart';
+import '../bloc/popular_movies_bloc.dart';
 import 'popular_movie_success.dart';
 
 class PopularMoviesScreen extends StatelessWidget {
@@ -18,14 +18,14 @@ class PopularMoviesScreen extends StatelessWidget {
       child: Builder(builder: (context) {
         return Scaffold(
           appBar: AppBar(
-            title: Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: const Text('Letterboxd'),
+            title: const Padding(
+              padding: EdgeInsets.all(16),
+              child: Text('Letterboxd'),
             ),
           ),
           body: const PopularMovieSuccess(),
         );
-      }),
+      },),
     );
   }
 }

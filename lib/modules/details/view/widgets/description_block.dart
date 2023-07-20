@@ -6,8 +6,8 @@ import '../../model/movie.dart';
 
 class DescriptionBlock extends StatelessWidget {
   const DescriptionBlock({
-    super.key,
     required this.movie,
+    super.key,
   });
 
   final Movie movie;
@@ -29,7 +29,7 @@ class DescriptionBlock extends StatelessWidget {
             ),
           ],
         ),
-        SizedBox(height: 8),
+        const SizedBox(height: 8),
         //TODO Implement faded expandable text
         ExpandableText(
           movie.overview,

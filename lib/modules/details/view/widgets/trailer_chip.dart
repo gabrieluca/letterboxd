@@ -4,8 +4,7 @@ import '../../../../common/view/custom_colors.dart';
 
 class TrailerChip extends StatelessWidget {
   const TrailerChip({
-    super.key,
-    required this.onTap,
+    required this.onTap, super.key,
   });
 
   final VoidCallback onTap;
@@ -19,7 +18,7 @@ class TrailerChip extends StatelessWidget {
         label: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(
+            const Icon(
               Icons.play_arrow_rounded,
               color: CustomColors.titleColor,
             ),

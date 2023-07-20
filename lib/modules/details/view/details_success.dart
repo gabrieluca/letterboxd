@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 
 import '../model/movie.dart';
-import 'widgets/description_block.dart';
-import 'widgets/details_sliver_app_bar.dart';
-import 'widgets/details_header.dart';
 import 'widgets/action_list.dart';
-import 'widgets/rating_bloc.dart';
 import 'widgets/custom_toggle_buttons.dart';
+import 'widgets/description_block.dart';
+import 'widgets/details_header.dart';
+import 'widgets/details_sliver_app_bar.dart';
+import 'widgets/rating_bloc.dart';
 
 class DetailsSuccess extends StatefulWidget {
   const DetailsSuccess({
-    super.key,
     required this.movie,
     required this.image,
+    super.key,
   });
 
   final Movie movie;
@@ -35,18 +35,18 @@ class _DetailsSuccessState extends State<DetailsSuccess> {
         ),
         SliverToBoxAdapter(
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 8),
+            padding: const EdgeInsets.symmetric(horizontal: 8),
             child: Column(
               children: [
                 DetailsHeader(movie: widget.movie),
-                SizedBox(height: 8),
+                const SizedBox(height: 8),
                 DescriptionBlock(movie: widget.movie),
-                Divider(),
+                const Divider(),
                 RatingBlock(movie: widget.movie),
-                Divider(),
-                ActionList(),
-                Divider(),
-                CustomToggleButtons()
+                const Divider(),
+                const ActionList(),
+                const Divider(),
+                const CustomToggleButtons()
                 //TODO Add Cast, Crew, Details and Genres
                 // TODO Cast Horizontal List
               ],
