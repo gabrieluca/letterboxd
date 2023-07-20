@@ -4,7 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:letterboxd/common/model/failures.dart';
-import 'package:letterboxd/modules/home/data/home_repository.dart';
+import 'package:letterboxd/modules/home/data/repository.dart';
 
 import '../model/short_movie.dart';
 import 'page_params.dart';
@@ -58,7 +58,7 @@ class PopularMoviesBloc extends Bloc<PopularMoviesEvent, PopularMoviesState> {
     }
   }
 
-  final HomeRepository _repository;
+  final Repository _repository;
 }
 
 typedef PagedFetchParams<T> = ({

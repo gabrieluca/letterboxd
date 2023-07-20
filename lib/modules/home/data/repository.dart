@@ -1,4 +1,5 @@
 import 'package:injectable/injectable.dart';
+import 'package:letterboxd/modules/details/model/movie.dart';
 import 'package:letterboxd/modules/home/model/short_movie.dart';
 
 import '../../../common/data/api/endpoints.dart';
@@ -6,15 +7,18 @@ import '../../../common/data/services/http_service.dart';
 
 const _pageCount = 20;
 
-abstract interface class HomeRepository {
+abstract interface class Repository {
   Future<List<ShortMovie>> getPopularMovies([
     int? itemCount,
   ]);
+
+  Future<Movie> getMovie(MovieId id);
 }
 
-@Injectable(as: HomeRepository)
-class HomeRepositoryImpl implements HomeRepository {
-  HomeRepositoryImpl(this._http);
+// TODO Change to Letterboxd API
+@Injectable(as: Repository)
+class RepositoryImpl implements Repository {
+  RepositoryImpl(this._http);
 
   final HttpService _http;
 
@@ -38,5 +42,18 @@ class HomeRepositoryImpl implements HomeRepository {
         .whereType<Map<String, dynamic>>()
         .map(ShortMovie.fromMap)
         .toList();
+  }
+
+  @override
+  Future<Movie> getMovie(MovieId id) async {
+    final data = await _http.get(
+      Endpoints.movie(id),
+      queryParameters: {
+        // if (params.language != null)
+        // 'language': 'pt', //TODO [FEATURE] Change language: query parameter
+      },
+    );
+
+    return Movie.fromMap(data);
   }
 }

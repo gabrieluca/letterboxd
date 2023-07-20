@@ -14,13 +14,13 @@ class PopularMoviesList extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<PopularMoviesBloc, PopularMoviesState>(
       builder: (context, state) => state.map(
-        loading: (_) => const SliverToBoxAdapter(
+        loading: (_) => const SliverFillRemaining(
           child: Center(
             child: CircularProgressIndicator(),
           ),
         ),
-        error: (state) => Center(
-          child: SliverToBoxAdapter(
+        error: (state) => SliverFillRemaining(
+          child: Center(
             child: Text(
               state.isOffline
                   ? 'No internet connection'
@@ -49,7 +49,7 @@ class PopularMoviesList extends StatelessWidget {
                           context,
                           MaterialPageRoute(
                             builder: (context) => MovieDetailsScreen(
-                              movie: movie,
+                              shortMovie: movie,
                             ),
                           ),
                         );

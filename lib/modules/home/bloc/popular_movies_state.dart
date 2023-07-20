@@ -11,11 +11,6 @@ class PopularMoviesState with _$PopularMoviesState {
   const factory PopularMoviesState.error({@Default(false) bool isOffline}) =
       _Error;
 
-  bool get isOffline => maybeMap(
-        error: (state) => state.isOffline,
-        orElse: () => false,
-      );
-
   List<ShortMovie> get moviesList => maybeMap(
         success: (state) => state.moviesList,
         orElse: () => const [],

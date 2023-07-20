@@ -14,12 +14,13 @@ import 'package:dio/dio.dart' as _i6;
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
-import '../../modules/home/bloc/popular_movies_bloc.dart' as _i9;
-import '../../modules/home/data/home_repository.dart' as _i8;
+import '../../modules/details/bloc/details_bloc.dart' as _i9;
+import '../../modules/home/bloc/popular_movies_bloc.dart' as _i10;
+import '../../modules/home/data/repository.dart' as _i8;
 import '../data/api/connection_interceptor.dart' as _i5;
 import '../data/services/connection_service.dart' as _i4;
 import '../data/services/http_service.dart' as _i7;
-import 'dependencies_module.dart' as _i10;
+import 'dependencies_module.dart' as _i11;
 
 extension GetItInjectableX on _i1.GetIt {
   // initializes the registration of main-scope dependencies inside of GetIt
@@ -41,12 +42,12 @@ extension GetItInjectableX on _i1.GetIt {
     gh.lazySingleton<_i6.Dio>(
         () => dependenciesModule.dio(gh<_i5.ConnectionInterceptor>()));
     gh.lazySingleton<_i7.HttpService>(() => _i7.HttpServiceImpl(gh<_i6.Dio>()));
-    gh.factory<_i8.HomeRepository>(
-        () => _i8.HomeRepositoryImpl(gh<_i7.HttpService>()));
-    gh.factory<_i9.PopularMoviesBloc>(
-        () => _i9.PopularMoviesBloc(gh<_i8.HomeRepository>()));
+    gh.factory<_i8.Repository>(() => _i8.RepositoryImpl(gh<_i7.HttpService>()));
+    gh.factory<_i9.DetailsBloc>(() => _i9.DetailsBloc(gh<_i8.Repository>()));
+    gh.factory<_i10.PopularMoviesBloc>(
+        () => _i10.PopularMoviesBloc(gh<_i8.Repository>()));
     return this;
   }
 }
 
-class _$DependenciesModule extends _i10.DependenciesModule {}
+class _$DependenciesModule extends _i11.DependenciesModule {}
