@@ -1,10 +1,10 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:letterboxd/common/view/view_constants.dart';
 
 import 'common/data/services/log.dart';
 import 'common/dependencies/dependencies.dart';
+import 'common/view/custom_colors.dart';
 import 'modules/home/view/popular_movies_screen.dart';
 
 Future<void> main() async {
@@ -32,8 +32,8 @@ class MyApp extends StatelessWidget {
         brightness: Brightness.dark,
         scaffoldBackgroundColor: CustomColors.detailsBackground,
         appBarTheme: AppBarTheme(
-          color: const Color(0xFF0d1b4d),
-          toolbarHeight: 36,
+          color: CustomColors.appBarColor,
+          toolbarHeight: 44,
           titleTextStyle: Theme.of(context).textTheme.headlineSmall?.copyWith(
                 color: Colors.white,
                 fontWeight: FontWeight.bold,

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../details/view/movie_details_screen.dart';
-import '../bloc/popular_movies_bloc.dart';
-import '../../../common/view/widgets/movie_card.dart';
+import '../../../../common/view/widgets/movie_poster.dart';
+import '../../../details/view/details_screen.dart';
+import '../../bloc/popular_movies_bloc.dart';
 
 class PopularMoviesList extends StatelessWidget {
   const PopularMoviesList({
@@ -42,13 +42,13 @@ class PopularMoviesList extends StatelessWidget {
                 delegate: SliverChildBuilderDelegate(
                   (context, index) {
                     final movie = state.moviesList[index];
-                    return MovieCard(
+                    return MoviePoster(
                       movie: movie,
                       onTap: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => MovieDetailsScreen(
+                            builder: (context) => DetailsScreen(
                               shortMovie: movie,
                             ),
                           ),

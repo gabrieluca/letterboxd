@@ -3,18 +3,18 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../common/view/view_constants.dart';
 import '../bloc/popular_movies_bloc.dart';
-import 'popular_movies_list.dart';
+import 'widgets/popular_movies_list.dart';
 
-class PopularMovieContent extends StatefulWidget {
-  const PopularMovieContent({
+class PopularMovieSuccess extends StatefulWidget {
+  const PopularMovieSuccess({
     super.key,
   });
 
   @override
-  State<PopularMovieContent> createState() => _PopularMovieContentState();
+  State<PopularMovieSuccess> createState() => _PopularMovieSuccessState();
 }
 
-class _PopularMovieContentState extends State<PopularMovieContent> {
+class _PopularMovieSuccessState extends State<PopularMovieSuccess> {
   final ScrollController _controller = ScrollController();
 
   @override

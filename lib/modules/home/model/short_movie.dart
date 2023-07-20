@@ -8,6 +8,7 @@ class ShortMovie {
     this.title,
     this.originalTitle,
     this.posterPath,
+    this.backdropPath,
     this.releaseDate,
   );
 
@@ -15,6 +16,7 @@ class ShortMovie {
   final String title;
   final String originalTitle; //Include in search
   final String? posterPath;
+  final String? backdropPath;
   final DateTime releaseDate;
 
   factory ShortMovie.fromMap(Map<String, dynamic> json) {
@@ -46,10 +48,15 @@ class ShortMovie {
     }
 
     var posterPath = json['poster_path'] as String?;
+    var backdropPath = json['backdrop_path'] as String?;
 
     /// Avoid empty validation on UI layer
     if (posterPath?.isEmpty ?? false) {
       posterPath = null;
+    }
+
+    if (backdropPath?.isEmpty ?? false) {
+      backdropPath = null;
     }
 
     return ShortMovie(
@@ -57,6 +64,7 @@ class ShortMovie {
       title,
       originalTitle,
       posterPath,
+      backdropPath,
       releaseDate,
     );
   }

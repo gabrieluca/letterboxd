@@ -10,25 +10,26 @@ class Movie extends ShortMovie {
     super.title,
     super.originalTitle,
     super.posterPath,
+    super.backdropPath,
     super.releaseDate,
     this.overview,
-    this.backdropPath,
     this.isAdult,
     this.originalLanguage,
     this.releaseStatus,
     this.genres,
     this.tagLine,
     this.rating,
+    this.duration,
   );
 
   final String overview;
-  final String? backdropPath;
   final bool isAdult;
   final Language originalLanguage;
   final String releaseStatus;
   final List<Genre> genres;
   final String tagLine;
   final double rating;
+  final int duration;
 
   factory Movie.fromMap(Map<String, dynamic> json) {
     final id = json['id'];
@@ -37,7 +38,8 @@ class Movie extends ShortMovie {
     final originalTitle = json['original_title'];
     final rawOriginalLanguage = json['original_language'];
     final rawReleaseDate = json['release_date'];
-    final rating = json['vote_average'] as double?;
+    final rating = json['vote_average'];
+    final duration = json['runtime'];
 
     if (id is! int) {
       throw MapperException(json, 'id');
@@ -75,6 +77,10 @@ class Movie extends ShortMovie {
       throw MapperException(json, 'vote_average');
     }
 
+    if (duration is! int) {
+      throw MapperException(json, 'runtime');
+    }
+
     var posterPath = json['poster_path'] as String?;
     var backdropPath = json['backdrop_path'] as String?;
     final isAdult = json['adult'] as bool?;
@@ -101,15 +107,16 @@ class Movie extends ShortMovie {
       title,
       originalTitle,
       posterPath,
+      backdropPath,
       releaseDate,
       overview,
-      backdropPath,
       isAdult ?? false,
       originalLanguage,
       releaseStatus ?? '',
       genres ?? [],
       tagLine ?? '',
-      rating,
+      rating / 2, //Convert to 5 star rating
+      duration,
     );
   }
 }

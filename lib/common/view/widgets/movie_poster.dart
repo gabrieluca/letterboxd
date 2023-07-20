@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../view_constants.dart';
 import '../../../modules/home/model/short_movie.dart';
 
-class MovieCard extends StatelessWidget {
-  const MovieCard({
+class MoviePoster extends StatelessWidget {
+  const MoviePoster({
     super.key,
     required this.movie,
     this.onTap,
